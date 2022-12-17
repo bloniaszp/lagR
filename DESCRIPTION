@@ -1,0 +1,12 @@
+Package: lagR
+Title: Compute the Lag of a Time Series (Wrap or Replace)
+Version: 0.0.0.9000
+Authors@R: 
+    person("Patrick", "Bloniasz", , "pblonias@bu.edu", role = c("aut", "cre"),
+           comment = c(ORCID = "https://orcid.org/0000-0002-8652-7609"))
+Description: lagR computes the lagged version of a time series or generic vector by shifting the values back by a given number of observations. It then can either 1) replace the lagged observations with an NaN or the inputs of your choice (e.g., random values from a distribution) or 2) wrap the last n values to the front of the time series–as determined by the desired lag value. This package avoids the specific errors occasionally caused by misuse of the stats::lag package, which is a generic function that adds a tsp attribute via hasTsp to the time series by treating all inputs and outputs as plain vectors. It also provides more functionality than TSA::zlag by allowing users to wrap their time series or replace missing lagged values in one function. 
+License: `use_mit_license()`
+    license
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
