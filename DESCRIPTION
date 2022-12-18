@@ -1,6 +1,6 @@
 Package: lagR
 Title: Compute the Lag of a Time Series (Wrap or Replace)
-Version: 0.0.0.9000
+Version: 1.0.0.0
 Authors@R: 
     person("Patrick", "Bloniasz", , "pblonias@bu.edu", role = c("aut", "cre"),
            comment = c(ORCID = "https://orcid.org/0000-0002-8652-7609"))
