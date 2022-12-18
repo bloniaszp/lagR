@@ -35,7 +35,7 @@
 #' 
 #' @examples 
 #' 
-#' #' 
+#' 
 #' # Example #1: 'blank' method with no replacement
 #' input<- rnorm(25)
 #' lag_val <- 5
@@ -67,16 +67,17 @@ lagR <- function(input, lag_val, method = "wrap", replacement_vector = FALSE, re
   
   if(num > 0) {
     run = "positive"
-  } else {
-    if(num == 0) {
-      run = "zero"
-    } else {
-      run = "negative"
     }
+  else if(num == 0) {
+    run = "zero"
+    }
+  else if (num <0) {
+    run = "negative"
   }
+
   
   
-  if (num == "positive"){
+  if (run == "positive"){
     if(typeof(input)!="double" & typeof(input)!="numeric"){
       stop("Input can only take a single, numerical vector.")
     }
@@ -138,13 +139,14 @@ lagR <- function(input, lag_val, method = "wrap", replacement_vector = FALSE, re
       final_vector <-manipulated_vector
       
     }
-    return(list(original_vector = original_vector, lagged = final_vector))
+
   }
-  else if (num == "zero"){
+  else if (run == "zero"){
     stop("A lag of 0 is just reproducing the same time series, please select a proper lag_val")
     
     
-  }else{
+  }
+  else if(run =="negative"){
     if(typeof(input)!="double" & typeof(input)!="numeric"){
       stop("Input can only take a single, numerical vector.")
     }
@@ -209,9 +211,9 @@ lagR <- function(input, lag_val, method = "wrap", replacement_vector = FALSE, re
         warning("Replacement_vector was not used, meaning it is redundant. Check to see if you meant to make 'replace' TRUE")
       }
       final_vector <-manipulated_vector
-      
     }
-    return(list(original_vector = original_vector, lagged = final_vector))
+    
   }
+  return(list(original_vector = original_vector, lagged = final_vector))
 }
 
